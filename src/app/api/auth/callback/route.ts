@@ -5,7 +5,7 @@ import axios from 'axios';
 const LINKEDIN_API_URL = 'https://api.linkedin.com/v2';
 const LINKEDIN_CLIENT_ID = process.env.NEXT_PUBLIC_LINKEDIN_CLIENT_ID;
 const LINKEDIN_CLIENT_SECRET = process.env.LINKEDIN_CLIENT_SECRET;
-const LINKEDIN_REDIRECT_URI = 'http://linkeidn-a-pi.vercel.app/api/auth/callback';
+const LINKEDIN_REDIRECT_URI = 'https://linkeidn-a-pi.vercel.app/api/auth/callback';
 
 if (!LINKEDIN_CLIENT_ID || !LINKEDIN_CLIENT_SECRET) {
   throw new Error('LinkedIn credentials are not properly configured');
