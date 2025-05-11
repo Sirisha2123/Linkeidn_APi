@@ -29,18 +29,21 @@ export async function GET(request: Request) {
     console.log('Received authorization code from LinkedIn');
 
     // Exchange the code for an access token
-    const tokenResponse = await axios.post('https://www.linkedin.com/oauth/v2/accessToken', null, {
-      params: {
-        grant_type: 'authorization_code',
-        code,
-        client_id: LINKEDIN_CLIENT_ID,
-        client_secret: LINKEDIN_CLIENT_SECRET,
-        redirect_uri: LINKEDIN_REDIRECT_URI,
-      },
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-    });
+const tokenResponse = await axios.post('https://www.linkedin.com/oauth/v2/accessToken', new URLSearchParams({
+  grant_type: 'authorization_code',
+  code,
+  client_id: LINKEDIN_CLIENT_ID,
+  client_secret: LINKEDIN_CLIENT_SECRET,
+  redirect_uri: LINKEDIN_REDIRECT_URI,
+}).toString(), {
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+  },
+}).catch(error => {
+  console.error('LinkedIn OAuth Error:', error.response ? error.response.data : error.message);
+  throw new Error('Failed to exchange code for token');
+});
+
 
     console.log('Successfully obtained access token');
 
