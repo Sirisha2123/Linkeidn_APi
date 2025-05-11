@@ -3,7 +3,7 @@ import axios from 'axios';
 const LINKEDIN_API_URL = 'https://api.linkedin.com/v2';
 const LINKEDIN_CLIENT_ID = process.env.NEXT_PUBLIC_LINKEDIN_CLIENT_ID;
 // Make sure this matches EXACTLY what's registered in LinkedIn Developer Application
-const LINKEDIN_REDIRECT_URI = 'https://linkeidn-a-pi.vercel.app/api/auth/callback';
+const LINKEDIN_REDIRECT_URI = 'https://linkeidn-a-pi.vercel.app/api/auth/callback/linkedin';
 
 if (!LINKEDIN_CLIENT_ID) {
   console.error('LINKEDIN_CLIENT_ID is not defined in environment variables');
