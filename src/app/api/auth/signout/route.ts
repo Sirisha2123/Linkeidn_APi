@@ -19,7 +19,7 @@ export async function GET() {
     const signOutUrl = getLinkedInSignOutUrl();
 
     // Redirect to the main page after successful sign-out
-    return NextResponse.redirect(new URL('/', process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'));
+    return NextResponse.redirect(new URL('/', process.env.NEXT_PUBLIC_BASE_URL || 'https://linkeidn-a-pi.vercel.app/'));
   } catch (error) {
     console.error('Error during sign-out:', error);
     return NextResponse.json(
